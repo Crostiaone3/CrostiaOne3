@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Toko</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;background-image: url('bck2.jpg'); /* Ganti dengan path ke gambar background yang baru */
+    background-size: cover;
+    background-position: center;
+    margin: 0px;
+    padding: 0px;
+    height: 120vh;
+      
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-image: url('atas.jpg');
+      background-size: 400px 140px;
+      background-repeat: no-repeat;
+      color: #B5BB7B
+    }
+
+    .itemContainer {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .item {
+      text-align: center;
+      margin: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .item img {
+      max-width: 100%;
+      max-height: 100px;
+      border-radius: 10px;
+    }
+
+    .itemName {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #itemForm {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #134AA4;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      max-width: 300px; /* Menyesuaikan lebar formulir */
+    }
+
+    #itemForm label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #itemForm button {
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #whatsappLogo {
+      max-width: 50px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  
+  .warningtext {
+    margin-top: 10px;
+    font-size: 20px;
+    transform: translate(0%, 9%);
+    text-align-last: center;
+    
+  }
+  
+  header2 {
+    text-align: center;
+    color: white;
+  }
+  
+  header3 {
+    text-align: center;
+    padding: 20px 60px;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>.</h1>
+  </header>
+
+  <div class="itemContainer">
+    <!-- Item 1 -->
+    <div class="item" onclick="showForm('RDP')">
+      <img src="rdp.jpg" alt="Item 1 Logo">
+      <div class="itemName">RDP</div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="item" onclick="showForm('LICENSE 4BOT')">
+      <img src="luci.jpg" alt="Item 2 Logo">
+      <div class="itemName">LICENSE</div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="item" onclick="showForm('SOCKS5')">
+      <img src="socks.jpg" alt="Item 3 Logo">
+      <div class="itemName">SOCKS5</div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="item" onclick="showForm('CID')">
+      <img src="cid.jpg" alt="Item 4 Logo">
+      <div class="itemName">CID</div>
+    </div>
+  </div>
+  
+  <header2>
+  <h2>( TENTANG )</h2>
+  </header2>
+  
+<header3>
+  <h3>SHOP TERMURAH</h3>
+  <h3>HARGA PAS DENGAN KUALITAS</h3>
+  <h3>SEMUA BAHAN PRIVAST CROSTIA</h3>
+</header3>
+  <!-- Formulir Item -->
+  <div id="itemForm">
+    <label for="itemName">Nama Item:</label>
+    <input type="text" id="itemName" name="itemName" readonly>
+
+    <label for="quantity">Jumlah:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+    <label for="paymentMethod">Pembayaran:</label>
+    <select id="paymentMethod" name="paymentMethod" required>
+      <option value="Growtopia">Growtopia</option>
+      <option value="eWallet">E-Wallet</option>
+    </select>
+
+    <button onclick="sendToWhatsApp()">CLICK HERE TO PROSES</button>
+
+    </a>
+  </div>
+
+  <script>
+    function showForm(itemName) {
+      const form = document.getElementById('itemForm');
+      const itemNameInput = document.getElementById('itemName');
+
+      itemNameInput.value = itemName;
+      form.style.display = 'block';
+    }
+
+    function sendToWhatsApp() {
+      const itemName = document.getElementById('itemName').value;
+      const quantity = document.getElementById('quantity').value;
+      const paymentMethod = document.getElementById('paymentMethod').value;
+
+      // Ganti nomor WhatsApp dan pesan sesuai dengan kebutuhan Anda
+      const phoneNumber = '6281234567890';
+      const message = `JUMLAH:${quantity}
+ITEM NAME:${itemName}
+PAYMENT:${paymentMethod}.`;
+
+      // Membuat link WhatsApp dengan pesan yang sudah dibentuk
+      const waLink = `https://wa.me/6283852757271?text=${encodeURIComponent(message)}`;
+
+      // Membuka link WhatsApp pada tab baru
+      window.open(waLink, '_blank');
+    }
+  </script>
+
+</body>
+</html>
